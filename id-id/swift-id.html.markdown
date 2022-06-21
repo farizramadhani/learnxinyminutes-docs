@@ -17,87 +17,89 @@ lang: id-id
 
 Swift adalah bahasa pemrograman untuk pengembangan iOS dan macOS yang dibuat oleh Apple. Dirancang untuk hidup berdampingan dengan Objective-C dan lebih tahan terhadap kode yang salah, Swift diperkenalkan pada tahun 2014 di konferensi pengembang Apple WWDC. Swift dibangun dengan kompiler LLVM yang disertakan dalam Xcode 6+.
 
-Buku resmi _[Swift Programming Language](https://itunes.apple.com/us/book/swift-programming-language/id881256329)_ dari Apple sekarang tersedia melalui iBooks. Itu jauh lebih detail daripada panduan ini, dan jika kamu memiliki waktu dan kesabaran untuk membacanya, sangat direkomendasikan. Beberapa contoh ini berasal dari buku itu.
+Buku resmi _[Swift Programming Language](https://itunes.apple.com/us/book/swift-programming-language/id881256329)_ dari Apple sekarang tersedia melalui iBooks. Itu jauh lebih detail daripada panduan ini, dan jika Anda memiliki waktu dan kesabaran untuk membacanya, sangat direkomendasikan. Beberapa contoh ini berasal dari buku itu.
 
 Referensi bagus lainnya adalah _About Swift_ pada Swift [website](https://docs.swift.org/swift-book/).
 
 ```swift
-// import a module
+// mengimpor modul
 import Foundation
 
-// Single-line comments are prefixed with //
-// Multi-line comments start with /* and end with */
-/* Nested multiline comments
- /* ARE */
- allowed
+// Komentar satu baris diawali dengan //
+// Komentar multibaris diawali dengan /* dan diakhiri */
+/* Komentar multibaris bersarang
+ /* DI */
+ perbolehkan
  */
 
-// Xcode supports landmarks to annotate your code and lists them in the jump bar
-// MARK: Section mark
-// MARK: - Section mark with a separator line
-// TODO: Do something soon
-// FIXME: Fix this code
+// Xcode mendukung landmark untuk membubuhi keterangan kode Anda dan mencantumkannya di jump bar
+// MARK: Tanda bagian
+// MARK: - Tanda bagian dengan garis pemisah
+// TODO: Lakukan sesuatu segera
+// FIXME: Perbaiki kode ini
 
-//MARK: Hello, World
-// From Swift 3 on, to print, just use the `print` method.
-// It automatically appends a new line.
+// MARK: Halo Dunia
+// Dari Swift 3, untuk mencetak, cukup gunakan metode `print`.
+// Secara otomatis menambahkan baris baru.
 print("Hello, world")
 
 //
-// MARK: - Variables
+// MARK: - Variabel
 //
 
-
-//Use `let` to declare a constant and `var` to declare a variable.
+// Gunakan `let` untuk mendeklarasikan konstanta dan `var` untuk mendeklarasikan variabel.
 let theAnswer = 42
 var theQuestion = "What is the Answer?"
 theQuestion = "How many roads must a man walk down?"
 theQuestion = "What is six by nine?"
-// Atttempting to reassign a constant throws a compile-time error
+// Mencoba untuk menetapkan kembali konstanta menimbulkan compile-time error
 //theAnswer = 54
 
-// Both variables and constants can be declared before they are given a value,
-//   but must be given a value before they are used
+// Baik variabel maupun konstanta dapat dideklarasikan sebelum diberi nilai,
+//   tetapi harus diberi nilai sebelum digunakan
 let someConstant: Int
 var someVariable: String
-// These lines will throw errors:
+// Baris-baris ini akan menimbulkan error:
 //print(someConstant)
 //print(someVariable)
 someConstant = 0
 someVariable = "0"
-// These lines are now valid:
+// Baris-baris ini sekarang valid:
 print(someConstant)
 print(someVariable)
 
-// As you can see above, variable types are automatically inferred.
-//   To explicitly declare the type, write it after the variable name,
-//   separated by a colon.
+// Seperti yang Anda lihat di atas, tipe variabel secara otomatis disimpulkan.
+//   Untuk mendeklarasikan tipe secara eksplisit, tulis setelah nama variabel,
+//   dipisahkan oleh tanda titik dua.
 let aString: String = "A string"
 let aDouble: Double = 0
 
-// Values are never implicitly converted to another type.
-// Explicitly make instances of the desired type.
+// Nilai tidak pernah secara implisit dikonversi ke tipe lain.
+// Secara eksplisit membuat contoh dari tipe yang diinginkan.
 let stringWithDouble = aString + String(aDouble)
 let intFromDouble = Int(aDouble)
 
-// For strings, use string interpolation
+// Untuk string, gunakan  string interpolation
 let descriptionString = "The value of aDouble is \(aDouble)"
-// You can put any expression inside string interpolation.
+// Anda dapat menempatkan ekspresi apa pun di dalam string interpolation.
 let equation = "Six by nine is \(6 * 9), not 42!"
-// To avoid escaping double quotes and backslashes, change the string delimiter
+// Untuk menghindari keluar dari double quotes dan backslashes, ubah pembatas string.
 let explanationString = #"The string I used was "The value of aDouble is \(aDouble)" and the result was \#(descriptionString)"#
-// You can put as many number signs as you want before the opening quote,
-//   just match them at the ending quote. They also change the escape character
-//   to a backslash followed by the same number of number signs.
+// Anda dapat menempatkan tanda angka sebanyak yang Anda inginkan sebelum kutipan pembuka,
+//   cocokkan saja dengan kutipan akhir. Mereka juga mengubah escape character
+//   ke backslash diikuti oleh jumlah tanda angka yang sama..
 
 let multiLineString = """
-    This is a multi-line string.
-    It's called that because it takes up multiple lines (wow!)
-        Any indentation beyond the closing quotation marks is kept, the rest is discarded.
-    You can include " or "" in multi-line strings because the delimiter is three "s.
+    Ini adalah string multi-baris.
+    Disebut demikian karena membutuhkan banyak baris (wow!)
+        Setiap indentasi di luar tanda kutip penutup disimpan, sisanya dibuang.
+    Anda dapat menyertakan " atau "" dalam string multi-baris karena pembatasnya adalah tiga ".
     """
 
-// Arrays
+//
+// Array
+//
+
 let shoppingList = ["catfish", "water", "tulips",] //commas are allowed after the last element
 let secondElement = shoppingList[1] // Arrays are 0-indexed
 
