@@ -100,64 +100,66 @@ let multiLineString = """
 // Array
 //
 
-let shoppingList = ["catfish", "water", "tulips",] //commas are allowed after the last element
-let secondElement = shoppingList[1] // Arrays are 0-indexed
+let shoppingList = ["catfish", "water", "tulips",] // koma diperbolehkan setelah elemen terakhir
+let secondElement = shoppingList[1] // Array diindeks 0
 
-// Arrays declared with let are immutable; the following line throws a compile-time error
+// Array yang dideklarasikan dengan let tidak dapat diubah; baris berikut memunculkan kesalahan waktu kompilasi
 //shoppingList[2] = "mango"
 
-// Arrays are structs (more on that later), so this creates a copy instead of referencing the same object
+// Array adalah struct (lebih lanjut tentang itu nanti), yakni membuat salinan alih-alih mereferensikan objek yang sama
 var mutableShoppingList = shoppingList
 mutableShoppingList[2] = "mango"
 
-// == is equality
+// == adalah equality
 shoppingList == mutableShoppingList // false
 
-// Dictionaries declared with let are also immutable
+// Dictionaries dideklarasikan dengan let juga tidak dapat diubah
 var occupations = [
     "Malcolm": "Captain",
     "Kaylee": "Mechanic"
 ]
 occupations["Jayne"] = "Public Relations"
-// Dictionaries are also structs, so this also creates a copy
+// Dictionaries juga struct, jadi ini membuat salinan juga
 let immutableOccupations = occupations
 
 immutableOccupations == occupations // true
 
-// Arrays and dictionaries both automatically grow as you add elements
+// Array and dictionaries keduanya tumbuh secara otomatis saat Anda menambahkan elemen
 mutableShoppingList.append("blue paint")
 occupations["Tim"] = "CEO"
 
-// They can both be set to empty
+// Keduanya dapat disetel kosong
 mutableShoppingList = []
 occupations = [:]
 
 let emptyArray = [String]()
-let emptyArray2 = Array<String>() // same as above
-// [T] is shorthand for Array<T>
-let emptyArray3: [String] = [] // Declaring the type explicitly allows you to set it to an empty array
-let emptyArray4: Array<String> = [] // same as above
+let emptyArray2 = Array<String>() // sama sepeti di atas
+// [T] adalah singkatan dari Array<T>
+let emptyArray3: [String] = [] // Mendeklarasikan tipe secara eksplisit memungkinkan Anda untuk mengaturnya ke array kosong
+let emptyArray4: Array<String> = [] // sama sepeti di atas
 
-// [Key: Value] is shorthand for Dictionary<Key, Value>
+// [Key: Value] adalah singkatan dari Dictionary<Key, Value>
 let emptyDictionary = [String: Double]()
-let emptyDictionary2 = Dictionary<String, Double>() // same as above
+let emptyDictionary2 = Dictionary<String, Double>() // sama sepeti di atas
 var emptyMutableDictionary: [String: Double] = [:]
-var explicitEmptyMutableDictionary: Dictionary<String, Double> = [:] // same as above
+var explicitEmptyMutableDictionary: Dictionary<String, Double> = [:] // sama sepeti di atas
 
-// MARK: Other variables
-let øπΩ = "value" // unicode variable names
-let 🤯 = "wow" // emoji variable names
+// MARK: Variable lainnya
+let øπΩ = "value" // nama variabel unicode
+let 🤯 = "wow" // name variabel emoji
 
-// Keywords can be used as variable names
-// These are contextual keywords that wouldn't be used now, so are allowed
+// Keywords/Kata kunci dapat digunakan sebagai nama variabel
+// Ini adalah kata kunci kontekstual yang tidak akan digunakan sekarang, jadi diperbolehkan
 let convenience = "keyword"
 let weak = "another keyword"
 let override = "another keyword"
 
-// Using backticks allows keywords to be used as variable names even if they wouldn't be allowed normally
+// Menggunakan backticks memungkinkan kata kunci digunakan sebagai nama variabel meskipun tidak diizinkan secara normal
 let `class` = "keyword"
 
-// MARK: - Optionals
+//
+// MARK: - Optional
+//
 
 /*
  Optionals are a Swift language feature that either contains a value,
